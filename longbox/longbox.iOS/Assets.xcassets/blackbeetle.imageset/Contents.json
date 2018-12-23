@@ -1,0 +1,24 @@
+{
+  "images": [
+    {
+      "scale": "1x",
+      "idiom": "universal",
+      "filename": "blackbeetle.jpg"
+    },
+    {
+      "scale": "2x",
+      "idiom": "universal",
+      "filename": "blackbeetle1.jpg"
+    },
+    {
+      "scale": "3x",
+      "idiom": "universal",
+      "filename": "blackbeetle2.jpg"
+    }
+  ],
+  "properties": {},
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}

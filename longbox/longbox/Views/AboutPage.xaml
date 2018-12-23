@@ -46,7 +46,7 @@
                             <FormattedString.Spans>
                                 <Span Text="This app is written in C# and native APIs using the" />
                                 <Span Text=" " />
-                                <Span Text="Xamarin Platform" FontAttributes="Bold" />
+                                <Span Text="Xamarin NEW STUFF HERE Platform" FontAttributes="Bold" />
                                 <Span Text="." />
                             </FormattedString.Spans>
                         </FormattedString>
