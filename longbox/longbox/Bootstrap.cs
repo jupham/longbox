@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.CommonServiceLocator;
+using ComixedService;
 using CommonServiceLocator;
 using longbox.Services;
 using longbox.ViewModels;
@@ -14,8 +15,15 @@ namespace longbox
         public static void Initialize()
         {
             ContainerBuilder builder = new ContainerBuilder();
+
+            // Register Types
             builder.RegisterType<ComicGridViewModel>().AsSelf();
-            builder.RegisterInstance(new Comixed()).As<IComicProvider>().ExternallyOwned();
+            builder.RegisterType<ComicCellViewModel>().AsSelf();
+
+            // Register Services
+            var comixed = new Comixed();
+            comixed.SetProviderCredentials("comixedadmin@localhost", "comixedadmin");
+            builder.RegisterInstance(comixed).As<IComicProvider>();
        
             IContainer container = builder.Build();
 

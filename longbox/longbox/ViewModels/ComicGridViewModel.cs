@@ -1,7 +1,9 @@
-﻿using longbox.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
+using ComixedService;
+using ComixedService.Models;
 
 namespace longbox.ViewModels
 {
@@ -14,6 +16,12 @@ namespace longbox.ViewModels
         {
             _comicProvider = cProvider;
             Title = "Comics TEST";
+        }
+
+        public async Task<List<Comic>> GetComics()
+        {
+            var comics = await _comicProvider.GetComicsAsync();
+            return comics;
         }
     }
 }

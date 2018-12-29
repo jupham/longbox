@@ -18,5 +18,13 @@ namespace longbox.ViewModels
                 return ServiceLocator.Current.GetInstance<ComicGridViewModel>();
             }
         }
+
+        public ComicCellViewModel ComicCell
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ComicCellViewModel>();
+            }
+        }
     }
 }

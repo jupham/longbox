@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ComixedService.Models;
+using longbox.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,10 @@ namespace longbox.Views.Comics
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ComicCell : ContentView
 	{
-		public ComicCell ()
+		public ComicCell (Comic vm)
 		{
 			InitializeComponent ();
+            BindingContext = vm;
 		}
 	}
 }

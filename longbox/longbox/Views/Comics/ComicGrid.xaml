@@ -8,39 +8,8 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <ScrollView>
-        <FlexLayout Wrap="Wrap" JustifyContent="Center">
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-            <comics:ComicCell/>
-        </FlexLayout>
+            <FlexLayout x:Name="ComicLayout" Wrap="Wrap" JustifyContent="Center">
+            </FlexLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
