@@ -3,11 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:comics="clr-namespace:longbox.Views.Comics"
              xmlns:vm="clr-namespace:longbox.ViewModels"
+             BindingContext="{Binding ComicGrid, Source={StaticResource Locator}}"
              x:Class="longbox.Views.Comics.ComicGrid"
              Title="{Binding Title}">
-    <ContentPage.BindingContext>
-        <vm:ComicGridViewModel />
-    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
         <FlexLayout Wrap="Wrap" JustifyContent="Center">

@@ -1,14 +1,19 @@
-﻿using System;
+﻿using longbox.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace longbox.ViewModels
 {
-    class ComicGridViewModel : BaseViewModel
+    public class ComicGridViewModel : BaseViewModel
     {
-        public ComicGridViewModel ()
+        private readonly IComicProvider _comicProvider;
+        public List<string> comics;
+
+        public ComicGridViewModel (IComicProvider cProvider)
         {
-            Title = "Comics";
+            _comicProvider = cProvider;
+            Title = "Comics TEST";
         }
     }
 }

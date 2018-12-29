@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longbox.Android", "longbox\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longbox.iOS", "longbox\longbox.iOS\longbox.iOS.csproj", "{2673A241-5F8B-4226-870D-5B818C350199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "longbox", "longbox\longbox\longbox.csproj", "{096EC652-162F-4991-A078-1E1819383621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "longbox", "longbox\longbox\longbox.csproj", "{096EC652-162F-4991-A078-1E1819383621}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{F4A13487-9265-4971-ACEC-000427F1D500}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:longbox.ViewModels"
              x:Class="longbox.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,6 +11,7 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+            <vm:ViewModelLocator x:Key="Locator" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

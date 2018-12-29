@@ -16,5 +16,10 @@ namespace longbox.Views.Comics
 		{
 			InitializeComponent ();
 		}
-	}
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
+    }
 }
