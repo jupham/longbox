@@ -3,7 +3,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using longbox.Views;
 using Autofac;
-using longbox.Services;
 using longbox.ViewModels;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
