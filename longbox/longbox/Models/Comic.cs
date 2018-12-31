@@ -96,6 +96,19 @@ namespace longbox.Models
 
         [DeserializeAs(Name = "Volume")]
         public string Volume { get; set; }
+
+        public string CoverURL
+        {
+            set
+            {
+
+            }
+            get
+            {
+                var url = string.Format("{0}/api/comics/{1}/pages/0/content.jpg", "http://10.0.2.2:7171", Id);
+                return url;
+            }
+        }
     }
 
     public class Credit

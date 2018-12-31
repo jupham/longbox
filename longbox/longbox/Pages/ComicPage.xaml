@@ -4,9 +4,18 @@
              x:Class="longbox.Pages.ComicPage"
              Title="Comic Detail">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Text="{Binding Comic.Title}" />
-            <Entry Text="{Binding Comic.Publisher}" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Aspect="AspectFit">
+                    <Image.Source>
+                        <UriImageSource Uri="{Binding Comic.CoverURL}" 
+                            CacheValidity="3" 
+                            CachingEnabled="true"/>
+                    </Image.Source>
+                </Image>
+                <Entry Text="{Binding Comic.Title}" />
+                <Entry Text="{Binding Comic.Publisher}" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
