@@ -16,8 +16,9 @@ namespace longbox
             InitializeComponent();
             var ComicGrid = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ComicGridPageModel>();
 
-            var navContainer = new FreshMvvm.FreshNavigationContainer(ComicGrid);
-            MainPage = navContainer;
+            var tabbedNav = new FreshMvvm.FreshTabbedNavigationContainer();
+            tabbedNav.AddTab<ComicGridPageModel>("Comics", null);
+            MainPage = tabbedNav;
         }
 
         public static void Initialize()
