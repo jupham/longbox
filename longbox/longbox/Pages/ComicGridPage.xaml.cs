@@ -1,6 +1,4 @@
-﻿using ComixedService.Models;
-using longbox.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace longbox.Views.Comics
+namespace longbox.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ComicCell : ContentView
+	public partial class ComicGridPage : ContentPage
 	{
-		public ComicCell (Comic vm)
+		public ComicGridPage ()
 		{
 			InitializeComponent ();
-            BindingContext = vm;
 		}
 	}
 }

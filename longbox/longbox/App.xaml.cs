@@ -1,27 +1,30 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using longbox.Views;
-using Autofac;
-using longbox.ViewModels;
+using longbox.PageModels;
+using longbox.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace longbox
 {
     public partial class App : Application
     {
-        public static Autofac.IContainer Container { get; set; }
 
         public App()
         {
+            Initialize();
             InitializeComponent();
+            var ComicGrid = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ComicGridPageModel>();
 
-            MainPage = new MainPage();
+            var navContainer = new FreshMvvm.FreshNavigationContainer(ComicGrid);
+            MainPage = navContainer;
         }
 
         public static void Initialize()
         {
-            
+            var cp = new ComixedService();
+            cp.SetProviderCredentials("comixedadmin@localhost", "comixedadmin");
+            FreshMvvm.FreshIOC.Container.Register<IComicProvider>(cp);
         }
 
         protected override void OnStart()

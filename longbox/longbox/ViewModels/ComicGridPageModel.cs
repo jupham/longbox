@@ -1,18 +1,19 @@
-﻿using System;
+﻿using longbox.Models;
+using longbox.Services;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
-using ComixedService;
-using ComixedService.Models;
 
 namespace longbox.ViewModels
 {
-    public class ComicGridViewModel : BaseViewModel
+    public class ComicGridPageModel : BaseViewModel
     {
         private readonly IComicProvider _comicProvider;
         public List<string> comics;
 
-        public ComicGridViewModel (IComicProvider cProvider)
+        public ComicGridPageModel (IComicProvider cProvider)
         {
             _comicProvider = cProvider;
             Title = "Comics TEST";
