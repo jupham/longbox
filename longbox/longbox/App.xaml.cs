@@ -26,6 +26,9 @@ namespace longbox
             var cp = new ComixedService();
             cp.SetProviderCredentials("comixedadmin@localhost", "comixedadmin");
             FreshMvvm.FreshIOC.Container.Register<IComicProvider>(cp);
+
+            var db = new LongboxDatabase();
+            FreshMvvm.FreshIOC.Container.Register<IComicDatabaseProvider>(db);
         }
 
         protected override void OnStart()

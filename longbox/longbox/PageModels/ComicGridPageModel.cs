@@ -2,6 +2,7 @@
 using longbox.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace longbox.PageModels
@@ -10,10 +11,12 @@ namespace longbox.PageModels
     {
         public List<Comic> ComicList { get; set; }
         IComicProvider _comicProvider;
+        IComicDatabaseProvider _dbProvider;
 
-        public ComicGridPageModel(IComicProvider comicProvider)
+        public ComicGridPageModel(IComicProvider comicProvider, IComicDatabaseProvider dbProvider)
         {
             _comicProvider = comicProvider;
+            _dbProvider = dbProvider;
         }
 
         public override async void Init(object initData)
@@ -21,6 +24,10 @@ namespace longbox.PageModels
             base.Init(initData);
 
             ComicList = await _comicProvider.GetComicsAsync();
+
+            await _dbProvider.WriteComicsAsync(ComicList);
+            var dbComicList = await _dbProvider.GetComicsAsync();
+            Debug.WriteLine(dbComicList);
         }
 
         public Comic SelectedComic

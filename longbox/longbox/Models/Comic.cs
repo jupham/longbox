@@ -1,4 +1,5 @@
 ﻿using RestSharp.Deserializers;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,10 @@ namespace longbox.Models
 {
     public class Comic
     {
+        [DeserializeAs(Name = "id")]
+        [PrimaryKey]
+        public long Id { get; set; }
+
         [DeserializeAs(Name = "added_date")]
         public DateTime AddedDate { get; set; }
 
@@ -14,40 +19,39 @@ namespace longbox.Models
         public String ArchiveType { get; set; }
 
         [DeserializeAs(Name = "base_filename")]
+        [MaxLength(500)]
         public String BaseFilename { get; set; }
 
         [DeserializeAs(Name = "blocked_page_count")]
         public int BlockedPageCount { get; set; }
 
         [DeserializeAs(Name = "characters")]
-        public List<string> Characters { get; set; }
+        [Ignore]
+        public List<string> ServerCharacters { get; set; } // This prop used when data comes from server. Database items use Characters prop
 
         [DeserializeAs(Name = "comic_vine_id")]
         public long ComicVineId { get; set; }
 
         [DeserializeAs(Name = "comic_vine_url")]
+        [MaxLength(500)]
         public string ComicVineURL { get; set; }
 
         [DeserializeAs(Name = "cover_date")]
         public string CoverDate { get; set; }
 
-        [DeserializeAs(Name = "credits")]
-        public List<Credit> Credits { get; set; }
-
         [DeserializeAs(Name = "deleted_page_count")]
         public int DeletedPageCount { get; set; }
 
         [DeserializeAs(Name = "description")]
+        [MaxLength(1500)]
         public string Description { get; set; }
 
         [DeserializeAs(Name = "filename")]
+        [MaxLength(500)]
         public string Filename { get; set; }
 
         [DeserializeAs(Name = "format")]
         public string format { get; set; }
-
-        [DeserializeAs(Name = "id")]
-        public long Id { get; set; }
 
         [DeserializeAs(Name = "imprint")]
         public string Imprint { get; set; }
@@ -58,20 +62,15 @@ namespace longbox.Models
         [DeserializeAs(Name = "last_read_date")]
         public DateTime LastReadDate { get; set; }
 
-        [DeserializeAs(Name = "locations")]
-        public List<string> Locations { get; set; }
-
         [DeserializeAs(Name = "missing")]
         public bool Missing { get; set; }
 
         [DeserializeAs(Name = "notes")]
+        [MaxLength(500)]
         public string Notes { get; set; }
 
         [DeserializeAs(Name = "page_count")]
         public int PageCount { get; set; }
-
-        [DeserializeAs(Name = "pages")]
-        public List<Page> Pages { get; set; }
 
         [DeserializeAs(Name = "publisher")]
         public string Publisher { get; set; }
@@ -84,9 +83,6 @@ namespace longbox.Models
 
         [DeserializeAs(Name = "sort_name")]
         public string SortName { get; set; }
-
-        [DeserializeAs(Name = "story_arcs")]
-        public List<string> StoryArcs { get; set; }
 
         [DeserializeAs(Name = "summary")]
         public string Summary { get; set; }
@@ -109,11 +105,22 @@ namespace longbox.Models
                 return url;
             }
         }
+
+
+        // Relationships - These must be maintained manually
+        [DeserializeAs(Name = "credits")]
+        [Ignore]
+        public List<Credit> Credits { get; set; }
+
+        [DeserializeAs(Name = "pages")]
+        [Ignore]
+        public List<Page> Pages { get; set; }
     }
 
     public class Credit
     {
         [DeserializeAs(Name = "id")]
+        [PrimaryKey]
         public long Id { get; set; }
 
         [DeserializeAs(Name = "name")]
@@ -121,6 +128,12 @@ namespace longbox.Models
 
         [DeserializeAs(Name = "role")]
         public string Role { get; set; }
+    }
+
+    public class ComicCredit
+    {
+        public long ComicId { get; set; }
+        public long CreditId { get; set; }
     }
 
     public class Page
@@ -141,16 +154,20 @@ namespace longbox.Models
         public int Height { get; set; }
 
         [DeserializeAs(Name = "id")]
+        [PrimaryKey]
         public int Id { get; set; }
 
         [DeserializeAs(Name = "index")]
         public int Index { get; set; }
 
         [DeserializeAs(Name = "page_type")]
+        [Ignore]
         public PageType Type { get; set; }
 
         [DeserializeAs(Name = "width")]
         public int Width { get; set; }
+
+        public long ComicId { get; set; }
     }
 
     public class PageType
