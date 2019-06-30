@@ -14,11 +14,14 @@ namespace longbox
         {
             Initialize();
             InitializeComponent();
-            var ComicGrid = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ComicGridPageModel>();
 
-            var tabbedNav = new FreshMvvm.FreshTabbedNavigationContainer();
-            tabbedNav.AddTab<ComicGridPageModel>("Comics", null);
-            MainPage = tabbedNav;
+            MainPage = new AppShell();
+
+            //var ComicGrid = FreshMvvm.FreshPageModelResolver.ResolvePageModel<ComicGridPageModel>();
+
+            //var tabbedNav = new FreshMvvm.FreshTabbedNavigationContainer();
+            //tabbedNav.AddTab<ComicGridPageModel>("Comics", null);
+            //MainPage = tabbedNav;
         }
 
         public static void Initialize()

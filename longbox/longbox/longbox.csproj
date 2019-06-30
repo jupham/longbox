@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,18 +10,34 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FreshMvvm" Version="2.2.4" />
-    <PackageReference Include="PropertyChanged.Fody" Version="2.6.0" />
+    <PackageReference Include="FreshMvvm" Version="3.0.0" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.0.1" />
+    <PackageReference Include="Realm" Version="4.0.1" />
     <PackageReference Include="RestSharp" Version="106.6.9" />
     <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
-    <PackageReference Include="Xamarin.Forms" Version="3.6.0.220655" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.540366" />  
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Pages\ComicGridPage.xaml">
+    <Compile Update="AppShell.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppShell.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <LastGenOutput>AppShell.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Controls\FlyoutHeader.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Pages\ComicPage.xaml">
+    <EmbeddedResource Update="Views\ComicGridPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ComicPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
